@@ -1,30 +1,19 @@
-// add whatever parameters you deem necessary & write doc comment
-//accept 2 strings, word and letters, return true, otherwise false --boolean
-//only lowercase
-//make sure enough words on right to make words on left
+"use strict";
+
 /**
- *
- *  make a frequency counter for both strings
- * compare the values and see if right string adds up to left
- *  return true if so, if not, return false
- *
- * [test cases]
- * a:2   --  a:1, b:1, c:1   (return false)
- * a:1, b:1, c:1  -- d:1, c:1, b:1, a:1  (return true)
+
+ * accept 2 strings, word and letters, return true if word can be made from
+letters
  */
+
+// [test cases]
+// a:2   --  a:1, b:1, c:1   (return false)
+// a:1, b:1, c:1  -- d:1, c:1, b:1, a:1  (return true)
 
 function canConstructWord(word, letters) {
 
-  let letterCounter = makeCounter(letters);        //object
+  let letterCounter = makeCounter(letters);
 
-
-  // for (let char of letters) {
-  //   if (wordCounter[char] !== undefined && wordCounter[char] > 0) {
-  //     wordCounter[char]--;//
-  //   } else {
-  //     return false;
-  //   }
-  // }
   for (let char of word) {
     if (letterCounter[char] !== undefined && letterCounter[char] > 0) {
       letterCounter[char]--;
@@ -34,6 +23,10 @@ function canConstructWord(word, letters) {
   }
   return true;
 }
+
+/**
+ takes a string and makes frequency counter for characters in string
+ */
 
 function makeCounter(string) {
   let letterCounter = {};
